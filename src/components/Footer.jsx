@@ -40,14 +40,14 @@ export default function Footer({ darkMode = true }) {
           {/* Back to top button */}
           <button
             onClick={scrollToTop}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg border text-xs font-semibold transition-colors ${
+            className={`flex items-center gap-2 px-4 py-2.5 rounded-xl border text-xs font-black transition-all duration-200 cursor-pointer ${
               darkMode 
-                ? 'bg-slate-900 border-slate-800 hover:border-amber-500 text-slate-300 hover:text-amber-400' 
-                : 'bg-white border-slate-300 hover:border-amber-500 text-slate-700 hover:text-amber-600 shadow-sm'
+                ? 'bg-slate-900 border-slate-700 hover:border-amber-400 text-slate-100 hover:text-amber-400 shadow-md shadow-slate-950/50' 
+                : 'bg-white border-slate-300 hover:border-amber-500 text-slate-900 hover:text-amber-600 shadow-sm'
             }`}
           >
             <span>Back to Top</span>
-            <ArrowUp className="w-3.5 h-3.5 text-amber-500" />
+            <ArrowUp className="w-4 h-4 text-amber-500 shrink-0" />
           </button>
 
         </div>

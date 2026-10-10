@@ -116,35 +116,35 @@ export default function WorkflowTracker({ darkMode = true }) {
           darkMode ? 'bg-slate-950/90 border-slate-700' : 'bg-white border-slate-300'
         }`}>
           {/* Tracking Search & Selector */}
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pb-6 border-b border-slate-700/40">
-            <div className="flex items-center gap-3.5 w-full sm:w-auto">
-              <div className="p-3 rounded-2xl bg-amber-500/15 text-amber-500 font-bold shrink-0 shadow-md">
-                <Ship className="w-6 h-6" />
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-6 border-b border-slate-700/40">
+              <div className="flex items-center gap-3.5 w-full sm:w-auto">
+                <div className="p-3 rounded-2xl bg-amber-500/15 text-amber-500 font-bold shrink-0 shadow-md">
+                  <Ship className="w-6 h-6" />
+                </div>
+                <div>
+                  <h3 className={`text-base sm:text-lg font-black ${darkMode ? 'text-white' : 'text-slate-950'}`}>Consignment Tracking Ledger</h3>
+                  <p className={`text-xs font-bold ${darkMode ? 'text-slate-300' : 'text-slate-700'}`}>Select a B/L reference to simulate operational tracking</p>
+                </div>
               </div>
-              <div>
-                <h3 className={`text-base sm:text-lg font-black ${darkMode ? 'text-white' : 'text-slate-950'}`}>Consignment Tracking Ledger</h3>
-                <p className={`text-xs font-bold ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>Select a B/L reference to simulate operational tracking</p>
-              </div>
-            </div>
 
-            <div className="flex items-center gap-2 w-full sm:w-auto">
-              {Object.keys(trackedShipments).map((trackId) => (
-                <button
-                  key={trackId}
-                  onClick={() => setActiveTrackingNumber(trackId)}
-                  className={`px-4 py-2 rounded-xl text-xs font-black transition-all border shadow-sm ${
-                    activeTrackingNumber === trackId
-                      ? 'bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 border-amber-500 shadow-amber-500/25 scale-105'
-                      : darkMode
-                        ? 'bg-slate-900 border-slate-700 text-slate-200 hover:border-amber-500/60'
-                        : 'bg-slate-100 border-slate-300 text-slate-900 hover:bg-slate-200'
-                  }`}
-                >
-                  {trackId}
-                </button>
-              ))}
+              <div className="flex flex-wrap items-center gap-2 w-full sm:w-auto">
+                {Object.keys(trackedShipments).map((trackId) => (
+                  <button
+                    key={trackId}
+                    onClick={() => setActiveTrackingNumber(trackId)}
+                    className={`flex-1 sm:flex-initial px-4 py-2.5 rounded-xl text-xs font-black transition-all border shadow-sm cursor-pointer text-center ${
+                      activeTrackingNumber === trackId
+                        ? 'bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 border-amber-500 shadow-lg shadow-amber-500/25 scale-105'
+                        : darkMode
+                          ? 'bg-slate-900 border-slate-600 text-slate-100 hover:border-amber-400 hover:text-amber-300'
+                          : 'bg-slate-100 border-slate-300 text-slate-900 hover:bg-slate-200'
+                    }`}
+                  >
+                    {trackId}
+                  </button>
+                ))}
+              </div>
             </div>
-          </div>
 
           {/* Consignment Info Header */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">

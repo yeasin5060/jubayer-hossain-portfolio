@@ -171,7 +171,7 @@ export default function Contact({ darkMode = true }) {
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className={`block text-xs font-bold mb-1.5 ${darkMode ? 'text-slate-200' : 'text-slate-800'}`}>Your Name *</label>
+                      <label className={`block text-xs font-black mb-1.5 ${darkMode ? 'text-slate-100' : 'text-slate-800'}`}>Your Name *</label>
                       <input 
                         type="text" 
                         name="name" 
@@ -179,13 +179,15 @@ export default function Contact({ darkMode = true }) {
                         value={formData.name}
                         onChange={handleChange}
                         placeholder="John Doe"
-                        className={`w-full px-4 py-2.5 rounded-xl border text-sm font-semibold focus:outline-none focus:border-amber-500 ${
-                          darkMode ? 'bg-slate-900 border-slate-700 text-white' : 'bg-slate-50 border-slate-300 text-slate-950'
+                        className={`w-full px-4 py-3 rounded-xl border text-sm font-bold focus:outline-none transition-all ${
+                          darkMode 
+                            ? 'bg-slate-900 border-slate-700 text-white placeholder-slate-500 focus:border-amber-400 focus:bg-slate-950' 
+                            : 'bg-slate-50 border-slate-300 text-slate-950 focus:border-amber-500'
                         }`}
                       />
                     </div>
                     <div>
-                      <label className={`block text-xs font-bold mb-1.5 ${darkMode ? 'text-slate-200' : 'text-slate-800'}`}>Email Address *</label>
+                      <label className={`block text-xs font-black mb-1.5 ${darkMode ? 'text-slate-100' : 'text-slate-800'}`}>Email Address *</label>
                       <input 
                         type="email" 
                         name="email" 
@@ -193,29 +195,33 @@ export default function Contact({ darkMode = true }) {
                         value={formData.email}
                         onChange={handleChange}
                         placeholder="john@example.com"
-                        className={`w-full px-4 py-2.5 rounded-xl border text-sm font-semibold focus:outline-none focus:border-amber-500 ${
-                          darkMode ? 'bg-slate-900 border-slate-700 text-white' : 'bg-slate-50 border-slate-300 text-slate-950'
+                        className={`w-full px-4 py-3 rounded-xl border text-sm font-bold focus:outline-none transition-all ${
+                          darkMode 
+                            ? 'bg-slate-900 border-slate-700 text-white placeholder-slate-500 focus:border-amber-400 focus:bg-slate-950' 
+                            : 'bg-slate-50 border-slate-300 text-slate-950 focus:border-amber-500'
                         }`}
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className={`block text-xs font-bold mb-1.5 ${darkMode ? 'text-slate-200' : 'text-slate-800'}`}>Subject</label>
+                    <label className={`block text-xs font-black mb-1.5 ${darkMode ? 'text-slate-100' : 'text-slate-800'}`}>Subject</label>
                     <input 
                       type="text" 
                       name="subject" 
                       value={formData.subject}
                       onChange={handleChange}
                       placeholder="Commercial / Logistics Inquiry"
-                      className={`w-full px-4 py-2.5 rounded-xl border text-sm font-semibold focus:outline-none focus:border-amber-500 ${
-                        darkMode ? 'bg-slate-900 border-slate-700 text-white' : 'bg-slate-50 border-slate-300 text-slate-950'
+                      className={`w-full px-4 py-3 rounded-xl border text-sm font-bold focus:outline-none transition-all ${
+                        darkMode 
+                          ? 'bg-slate-900 border-slate-700 text-white placeholder-slate-500 focus:border-amber-400 focus:bg-slate-950' 
+                          : 'bg-slate-50 border-slate-300 text-slate-950 focus:border-amber-500'
                       }`}
                     />
                   </div>
 
                   <div>
-                    <label className={`block text-xs font-bold mb-1.5 ${darkMode ? 'text-slate-200' : 'text-slate-800'}`}>Message *</label>
+                    <label className={`block text-xs font-black mb-1.5 ${darkMode ? 'text-slate-100' : 'text-slate-800'}`}>Message *</label>
                     <textarea 
                       name="message" 
                       rows="4" 
@@ -223,17 +229,19 @@ export default function Contact({ darkMode = true }) {
                       value={formData.message}
                       onChange={handleChange}
                       placeholder="Write your message or job proposal details here..."
-                      className={`w-full px-4 py-2.5 rounded-xl border text-sm font-semibold focus:outline-none focus:border-amber-500 ${
-                        darkMode ? 'bg-slate-900 border-slate-700 text-white' : 'bg-slate-50 border-slate-300 text-slate-950'
+                      className={`w-full px-4 py-3 rounded-xl border text-sm font-bold focus:outline-none transition-all ${
+                        darkMode 
+                          ? 'bg-slate-900 border-slate-700 text-white placeholder-slate-500 focus:border-amber-400 focus:bg-slate-950' 
+                          : 'bg-slate-50 border-slate-300 text-slate-950 focus:border-amber-500'
                       }`}
                     ></textarea>
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full py-3.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-black text-sm uppercase tracking-wider shadow-lg shadow-amber-500/25 transition-all hover:-translate-y-1 flex items-center justify-center gap-2 active:scale-95"
+                    className="w-full py-4 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-black text-sm uppercase tracking-wider shadow-xl shadow-amber-500/25 transition-all duration-200 hover:-translate-y-0.5 flex items-center justify-center gap-2.5 active:scale-95 cursor-pointer"
                   >
-                    <Send className="w-4.5 h-4.5" />
+                    <Send className="w-5 h-5 shrink-0" />
                     <span>Send Message</span>
                   </button>
                 </form>

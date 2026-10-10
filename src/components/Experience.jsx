@@ -158,9 +158,9 @@ export default function Experience({ darkMode = true }) {
                 {exp.skills.map((skill, sIdx) => (
                   <span 
                     key={sIdx}
-                    className={`text-xs font-bold px-3.5 py-1.5 rounded-xl border transition-transform hover:scale-105 ${
+                    className={`text-xs font-extrabold px-3.5 py-1.5 rounded-xl border transition-all duration-200 hover:scale-105 ${
                       darkMode 
-                        ? 'bg-slate-900/90 border-slate-700 text-slate-200' 
+                        ? 'bg-slate-900/95 border-slate-600 text-slate-100 hover:border-amber-400 hover:text-amber-300 shadow-md shadow-slate-950/40' 
                         : 'bg-slate-100 border-slate-300 text-slate-900 shadow-sm'
                     }`}
                   >

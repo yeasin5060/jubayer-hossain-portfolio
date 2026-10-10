@@ -109,58 +109,58 @@ export default function Hero({ darkMode = true }) {
             </p>
 
             {/* Dual CTA Buttons */}
-            <div className="flex flex-wrap items-center gap-4 mb-12">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-4 mb-12 w-full sm:w-auto">
               <a
                 href="#experience"
-                className="flex items-center gap-3 px-7 py-3.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-black text-sm sm:text-base tracking-wide uppercase shadow-xl shadow-amber-500/25 transition-all hover:-translate-y-1 active:scale-95"
+                className="flex items-center justify-center gap-3 px-6 sm:px-7 py-3.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-black text-sm sm:text-base tracking-wide uppercase shadow-xl shadow-amber-500/25 transition-all duration-200 hover:-translate-y-0.5 active:scale-95 w-full sm:w-auto text-center"
               >
                 <span>View Work Experience</span>
-                <ArrowRight className="w-5 h-5" />
+                <ArrowRight className="w-5 h-5 shrink-0" />
               </a>
 
               <a
                 href="#contact"
-                className={`flex items-center gap-2 px-7 py-3.5 rounded-xl border font-bold text-sm sm:text-base transition-all hover:-translate-y-1 ${
+                className={`flex items-center justify-center gap-2.5 px-6 sm:px-7 py-3.5 rounded-xl border font-extrabold text-sm sm:text-base transition-all duration-200 hover:-translate-y-0.5 w-full sm:w-auto text-center ${
                   darkMode 
-                    ? 'bg-slate-900 hover:bg-slate-800 border-slate-700 text-slate-100' 
+                    ? 'bg-slate-900/90 hover:bg-slate-800 border-slate-600 text-slate-100 hover:border-amber-400 hover:text-amber-300 shadow-lg shadow-slate-950/60' 
                     : 'bg-white hover:bg-slate-100 border-slate-300 text-slate-950 shadow-md'
                 }`}
               >
-                <FileCheck2 className="w-5 h-5 text-amber-500" />
+                <FileCheck2 className="w-5 h-5 text-amber-500 shrink-0" />
                 <span>Get In Touch</span>
               </a>
             </div>
 
             {/* Stats Metrics Grid */}
-            <div ref={statsRef} className={`grid grid-cols-2 sm:grid-cols-4 gap-4 w-full pt-6 border-t ${
+            <div ref={statsRef} className={`grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 w-full pt-6 border-t ${
               darkMode ? 'border-slate-800' : 'border-slate-300'
             }`}>
-              <div className={`p-4 rounded-2xl text-left border ${
+              <div className={`p-3.5 sm:p-4 rounded-2xl text-left border transition-all ${
                 darkMode ? 'bg-slate-900/90 border-slate-800' : 'bg-white border-slate-300 shadow-md'
               }`}>
-                <div className="text-2xl sm:text-3xl font-black text-amber-500">5+</div>
-                <div className={`text-xs font-bold mt-1 ${darkMode ? 'text-slate-300' : 'text-slate-800'}`}>Years Operations Exp.</div>
+                <div className="text-xl sm:text-3xl font-black text-amber-500">5+</div>
+                <div className={`text-[11px] sm:text-xs font-bold mt-1 leading-tight ${darkMode ? 'text-slate-300' : 'text-slate-800'}`}>Years Operations Exp.</div>
               </div>
 
-              <div className={`p-4 rounded-2xl text-left border ${
+              <div className={`p-3.5 sm:p-4 rounded-2xl text-left border transition-all ${
                 darkMode ? 'bg-slate-900/90 border-slate-800' : 'bg-white border-slate-300 shadow-md'
               }`}>
-                <div className="text-2xl sm:text-3xl font-black text-blue-500">100%</div>
-                <div className={`text-xs font-bold mt-1 ${darkMode ? 'text-slate-300' : 'text-slate-800'}`}>Customs Compliance</div>
+                <div className="text-xl sm:text-3xl font-black text-blue-500">100%</div>
+                <div className={`text-[11px] sm:text-xs font-bold mt-1 leading-tight ${darkMode ? 'text-slate-300' : 'text-slate-800'}`}>Customs Compliance</div>
               </div>
 
-              <div className={`p-4 rounded-2xl text-left border ${
+              <div className={`p-3.5 sm:p-4 rounded-2xl text-left border transition-all ${
                 darkMode ? 'bg-slate-900/90 border-slate-800' : 'bg-white border-slate-300 shadow-md'
               }`}>
-                <div className="text-2xl sm:text-3xl font-black text-emerald-500">500+</div>
-                <div className={`text-xs font-bold mt-1 ${darkMode ? 'text-slate-300' : 'text-slate-800'}`}>Shipments Tracked</div>
+                <div className="text-xl sm:text-3xl font-black text-emerald-500">500+</div>
+                <div className={`text-[11px] sm:text-xs font-bold mt-1 leading-tight ${darkMode ? 'text-slate-300' : 'text-slate-800'}`}>Shipments Tracked</div>
               </div>
 
-              <div className={`p-4 rounded-2xl text-left border ${
+              <div className={`p-3.5 sm:p-4 rounded-2xl text-left border transition-all ${
                 darkMode ? 'bg-slate-900/90 border-slate-800' : 'bg-white border-slate-300 shadow-md'
               }`}>
-                <div className="text-2xl sm:text-3xl font-black text-purple-500">Zero</div>
-                <div className={`text-xs font-bold mt-1 ${darkMode ? 'text-slate-300' : 'text-slate-800'}`}>Doc Discrepancies</div>
+                <div className="text-xl sm:text-3xl font-black text-purple-500">Zero</div>
+                <div className={`text-[11px] sm:text-xs font-bold mt-1 leading-tight ${darkMode ? 'text-slate-300' : 'text-slate-800'}`}>Doc Discrepancies</div>
               </div>
             </div>
 
