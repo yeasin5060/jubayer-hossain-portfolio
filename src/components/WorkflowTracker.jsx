@@ -112,42 +112,42 @@ export default function WorkflowTracker({ darkMode = true }) {
         </div>
 
         {/* Tracker Interactive Container with GSAP Motion */}
-        <div ref={cardRef} className={`p-6 sm:p-8 rounded-2xl border transition-all shadow-2xl ${
+        <div ref={cardRef} className={`p-4 sm:p-8 rounded-2xl border transition-all shadow-2xl ${
           darkMode ? 'bg-slate-950/90 border-slate-700' : 'bg-white border-slate-300'
         }`}>
           {/* Tracking Search & Selector */}
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-6 border-b border-slate-700/40">
-              <div className="flex items-center gap-3.5 w-full sm:w-auto">
-                <div className="p-3 rounded-2xl bg-amber-500/15 text-amber-500 font-bold shrink-0 shadow-md">
-                  <Ship className="w-6 h-6" />
-                </div>
-                <div>
-                  <h3 className={`text-base sm:text-lg font-black ${darkMode ? 'text-white' : 'text-slate-950'}`}>Consignment Tracking Ledger</h3>
-                  <p className={`text-xs font-bold ${darkMode ? 'text-slate-300' : 'text-slate-700'}`}>Select a B/L reference to simulate operational tracking</p>
-                </div>
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-6 border-b border-slate-700/40">
+            <div className="flex items-center gap-3 w-full sm:w-auto">
+              <div className="p-2.5 sm:p-3 rounded-2xl bg-amber-500/15 text-amber-500 font-bold shrink-0 shadow-md">
+                <Ship className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
-
-              <div className="flex flex-wrap items-center gap-2 w-full sm:w-auto">
-                {Object.keys(trackedShipments).map((trackId) => (
-                  <button
-                    key={trackId}
-                    onClick={() => setActiveTrackingNumber(trackId)}
-                    className={`flex-1 sm:flex-initial px-4 py-2.5 rounded-xl text-xs font-black transition-all border shadow-sm cursor-pointer text-center ${
-                      activeTrackingNumber === trackId
-                        ? 'bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 border-amber-500 shadow-lg shadow-amber-500/25 scale-105'
-                        : darkMode
-                          ? 'bg-slate-900 border-slate-600 text-slate-100 hover:border-amber-400 hover:text-amber-300'
-                          : 'bg-slate-100 border-slate-300 text-slate-900 hover:bg-slate-200'
-                    }`}
-                  >
-                    {trackId}
-                  </button>
-                ))}
+              <div>
+                <h3 className={`text-base sm:text-lg font-black ${darkMode ? 'text-white' : 'text-slate-950'}`}>Consignment Tracking Ledger</h3>
+                <p className={`text-xs font-bold ${darkMode ? 'text-slate-300' : 'text-slate-700'}`}>Select a B/L reference to simulate operational tracking</p>
               </div>
             </div>
 
+            <div className="grid grid-cols-2 sm:flex sm:items-center gap-2.5 w-full sm:w-auto">
+              {Object.keys(trackedShipments).map((trackId) => (
+                <button
+                  key={trackId}
+                  onClick={() => setActiveTrackingNumber(trackId)}
+                  className={`w-full sm:w-auto px-4 py-2.5 rounded-xl text-xs font-black transition-all border shadow-sm cursor-pointer text-center whitespace-nowrap ${
+                    activeTrackingNumber === trackId
+                      ? 'bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 border-amber-500 ring-2 ring-amber-500/40 shadow-lg shadow-amber-500/25 font-black'
+                      : darkMode
+                        ? 'bg-slate-900 border-slate-700 text-slate-100 hover:border-amber-400 hover:text-amber-300'
+                        : 'bg-slate-100 border-slate-300 text-slate-900 hover:bg-slate-200'
+                  }`}
+                >
+                  {trackId}
+                </button>
+              ))}
+            </div>
+          </div>
+
           {/* Consignment Info Header */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 my-6">
             <div className={`p-4 rounded-xl border ${darkMode ? 'bg-slate-900/90 border-slate-800' : 'bg-slate-50 border-slate-200'}`}>
               <span className={`text-[10px] font-black uppercase tracking-wider ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>Consignee / Client</span>
               <p className={`text-sm font-black mt-1 ${darkMode ? 'text-white' : 'text-slate-950'}`}>{activeShipment.consignee}</p>
@@ -175,33 +175,33 @@ export default function WorkflowTracker({ darkMode = true }) {
                   ref={(el) => (stepsRef.current[idx] = el)}
                   onMouseEnter={() => handleStepMouseEnter(stepsRef.current[idx])}
                   onMouseLeave={() => handleStepMouseLeave(stepsRef.current[idx])}
-                  className={`flex items-center justify-between p-4 rounded-xl border cursor-pointer ${
+                  className={`flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3.5 sm:p-4 rounded-xl border cursor-pointer ${
                     item.completed 
                       ? darkMode ? 'bg-slate-900/90 border-emerald-500/40 shadow-sm' : 'bg-emerald-50/80 border-emerald-300 shadow-sm'
                       : darkMode ? 'bg-slate-900/40 border-slate-800' : 'bg-slate-50 border-slate-200'
                   }`}
                 >
-                  <div className="flex items-center gap-3.5">
-                    <div className={`p-2 rounded-full ${
+                  <div className="flex items-center gap-3">
+                    <div className={`p-2 rounded-full shrink-0 ${
                       item.completed 
                         ? 'bg-emerald-500/20 text-emerald-500' 
                         : 'bg-amber-500/20 text-amber-500 animate-pulse'
                     }`}>
-                      {item.completed ? <CheckCircle2 className="w-5 h-5" /> : <Clock className="w-5 h-5" />}
+                      {item.completed ? <CheckCircle2 className="w-4.5 h-4.5 sm:w-5 sm:h-5" /> : <Clock className="w-4.5 h-4.5 sm:w-5 sm:h-5" />}
                     </div>
                     <div>
-                      <p className={`text-sm font-bold ${
+                      <p className={`text-xs sm:text-sm font-bold ${
                         item.completed 
                           ? darkMode ? 'text-white' : 'text-slate-950' 
                           : darkMode ? 'text-slate-300' : 'text-slate-700'
                       }`}>
                         {item.name}
                       </p>
-                      <p className={`text-xs font-semibold ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>{item.date}</p>
+                      <p className={`text-[11px] sm:text-xs font-semibold ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>{item.date}</p>
                     </div>
                   </div>
 
-                  <span className={`text-xs font-black px-3 py-1 rounded-full border ${
+                  <span className={`self-start sm:self-auto shrink-0 whitespace-nowrap text-[10px] sm:text-xs font-black px-3 py-1 rounded-full border ${
                     item.completed
                       ? 'bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border-emerald-500/40'
                       : 'bg-amber-500/20 text-amber-600 dark:text-amber-400 border-amber-500/40'
