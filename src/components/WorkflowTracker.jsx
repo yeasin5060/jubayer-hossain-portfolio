@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import gsap from 'gsap';
-import { 
-  Ship, 
-  Clock, 
+import {
+  Ship,
+  Clock,
   CheckCircle2
 } from 'lucide-react';
 
@@ -87,16 +87,14 @@ export default function WorkflowTracker({ darkMode = true }) {
   const activeShipment = trackedShipments[activeTrackingNumber] || trackedShipments['BL-ARL-98421'];
 
   return (
-    <section id="tracker" ref={sectionRef} className={`py-24 relative overflow-hidden transition-colors duration-300 ${
-      darkMode ? 'bg-slate-900/80 border-y border-slate-800 text-white' : 'bg-slate-100/90 border-y border-slate-200 text-slate-950'
-    }`}>
+    <section id="tracker" ref={sectionRef} className={`py-24 relative overflow-hidden transition-colors duration-300 ${darkMode ? 'bg-slate-900/80 border-y border-slate-800 text-white' : 'bg-slate-100/90 border-y border-slate-200 text-slate-950'
+      }`}>
       {/* Moving Ambient Background */}
-      <div className={`absolute top-1/3 right-10 w-96 h-96 rounded-full blur-3xl pointer-events-none animate-floating-slow ${
-        darkMode ? 'bg-amber-500/10' : 'bg-amber-500/20'
-      }`} />
+      <div className={`absolute top-1/3 right-10 w-96 h-96 rounded-full blur-3xl pointer-events-none animate-floating-slow ${darkMode ? 'bg-amber-500/10' : 'bg-amber-500/20'
+        }`} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
+
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-xs font-black uppercase tracking-widest text-amber-600 dark:text-amber-400 bg-amber-500/15 px-4 py-1.5 rounded-full border border-amber-500/30 inline-block mb-3 shadow-sm">
@@ -112,9 +110,8 @@ export default function WorkflowTracker({ darkMode = true }) {
         </div>
 
         {/* Tracker Interactive Container with GSAP Motion */}
-        <div ref={cardRef} className={`p-4 sm:p-8 rounded-2xl border transition-all shadow-2xl ${
-          darkMode ? 'bg-slate-950/90 border-slate-700' : 'bg-white border-slate-300'
-        }`}>
+        <div ref={cardRef} className={`p-4 sm:p-8 rounded-2xl border transition-all shadow-2xl ${darkMode ? 'bg-slate-950/90 border-slate-700' : 'bg-white border-slate-300'
+          }`}>
           {/* Tracking Search & Selector */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-6 border-b border-slate-700/40">
             <div className="flex items-center gap-3 w-full sm:w-auto">
@@ -132,13 +129,12 @@ export default function WorkflowTracker({ darkMode = true }) {
                 <button
                   key={trackId}
                   onClick={() => setActiveTrackingNumber(trackId)}
-                  className={`flex-1 sm:flex-initial w-full sm:w-auto px-4 py-2.5 rounded-xl text-xs font-black transition-all border shadow-sm cursor-pointer text-center whitespace-nowrap ${
-                    activeTrackingNumber === trackId
+                  className={`w-full sm:w-auto px-5 py-3 rounded-xl text-xs sm:text-sm font-black transition-all border shadow-sm cursor-pointer text-center whitespace-nowrap ${activeTrackingNumber === trackId
                       ? 'bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 border-amber-500 ring-2 ring-amber-500/40 shadow-lg shadow-amber-500/25 font-black'
                       : darkMode
                         ? 'bg-slate-900 border-slate-700 text-slate-100 hover:border-amber-400 hover:text-amber-300'
                         : 'bg-slate-100 border-slate-300 text-slate-900 hover:bg-slate-200'
-                  }`}
+                    }`}
                 >
                   {trackId}
                 </button>
@@ -170,42 +166,38 @@ export default function WorkflowTracker({ darkMode = true }) {
 
             <div className="space-y-3">
               {activeShipment.items.map((item, idx) => (
-                <div 
+                <div
                   key={idx}
                   ref={(el) => (stepsRef.current[idx] = el)}
                   onMouseEnter={() => handleStepMouseEnter(stepsRef.current[idx])}
                   onMouseLeave={() => handleStepMouseLeave(stepsRef.current[idx])}
-                  className={`flex flex-col xs:flex-row xs:items-center justify-between gap-3 p-3.5 sm:p-4 rounded-xl border cursor-pointer transition-all ${
-                    item.completed 
+                  className={`flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3.5 sm:p-4 rounded-xl border cursor-pointer transition-all ${item.completed
                       ? darkMode ? 'bg-slate-900/90 border-emerald-500/40 shadow-sm' : 'bg-emerald-50/80 border-emerald-300 shadow-sm'
                       : darkMode ? 'bg-slate-900/40 border-slate-800' : 'bg-slate-50 border-slate-200'
-                  }`}
+                    }`}
                 >
                   <div className="flex items-center gap-3 flex-1 min-w-0">
-                    <div className={`p-2 rounded-full shrink-0 ${
-                      item.completed 
-                        ? 'bg-emerald-500/20 text-emerald-400' 
+                    <div className={`p-2 rounded-full shrink-0 ${item.completed
+                        ? 'bg-emerald-500/20 text-emerald-400'
                         : 'bg-amber-500/20 text-amber-400 animate-pulse'
-                    }`}>
+                      }`}>
                       {item.completed ? <CheckCircle2 className="w-4.5 h-4.5 sm:w-5 sm:h-5" /> : <Clock className="w-4.5 h-4.5 sm:w-5 sm:h-5" />}
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className={`text-xs sm:text-sm font-bold leading-tight ${
-                        item.completed 
-                          ? darkMode ? 'text-white' : 'text-slate-950' 
+                      <p className={`text-xs sm:text-sm font-bold leading-tight ${item.completed
+                          ? darkMode ? 'text-white' : 'text-slate-950'
                           : darkMode ? 'text-slate-300' : 'text-slate-700'
-                      }`}>
+                        }`}>
                         {item.name}
                       </p>
                       <p className={`text-[11px] sm:text-xs font-semibold mt-0.5 ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>{item.date}</p>
                     </div>
                   </div>
 
-                  <span className={`self-start xs:self-auto shrink-0 whitespace-nowrap inline-flex items-center justify-center min-w-max text-[10px] sm:text-xs font-black px-3 py-1 rounded-full border shadow-sm ${
-                    item.completed
+                  <span className={`self-start sm:self-auto shrink-0 whitespace-nowrap inline-flex items-center justify-center text-[10px] sm:text-xs font-black px-3 py-1 rounded-full border shadow-sm ${item.completed
                       ? 'bg-emerald-500/20 text-emerald-400 border-emerald-500/50'
                       : 'bg-amber-500/20 text-amber-400 border-amber-500/50'
-                  }`}>
+                    }`}>
                     {item.completed ? 'COMPLETED' : 'IN PROGRESS'}
                   </span>
                 </div>
