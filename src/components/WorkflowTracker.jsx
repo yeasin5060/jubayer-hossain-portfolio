@@ -127,12 +127,12 @@ export default function WorkflowTracker({ darkMode = true }) {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 sm:flex sm:items-center gap-2.5 w-full sm:w-auto">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 w-full sm:w-auto">
               {Object.keys(trackedShipments).map((trackId) => (
                 <button
                   key={trackId}
                   onClick={() => setActiveTrackingNumber(trackId)}
-                  className={`w-full sm:w-auto px-4 py-2.5 rounded-xl text-xs font-black transition-all border shadow-sm cursor-pointer text-center whitespace-nowrap ${
+                  className={`flex-1 sm:flex-initial w-full sm:w-auto px-4 py-2.5 rounded-xl text-xs font-black transition-all border shadow-sm cursor-pointer text-center whitespace-nowrap ${
                     activeTrackingNumber === trackId
                       ? 'bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 border-amber-500 ring-2 ring-amber-500/40 shadow-lg shadow-amber-500/25 font-black'
                       : darkMode
@@ -175,36 +175,36 @@ export default function WorkflowTracker({ darkMode = true }) {
                   ref={(el) => (stepsRef.current[idx] = el)}
                   onMouseEnter={() => handleStepMouseEnter(stepsRef.current[idx])}
                   onMouseLeave={() => handleStepMouseLeave(stepsRef.current[idx])}
-                  className={`flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3.5 sm:p-4 rounded-xl border cursor-pointer ${
+                  className={`flex flex-col xs:flex-row xs:items-center justify-between gap-3 p-3.5 sm:p-4 rounded-xl border cursor-pointer transition-all ${
                     item.completed 
                       ? darkMode ? 'bg-slate-900/90 border-emerald-500/40 shadow-sm' : 'bg-emerald-50/80 border-emerald-300 shadow-sm'
                       : darkMode ? 'bg-slate-900/40 border-slate-800' : 'bg-slate-50 border-slate-200'
                   }`}
                 >
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-3 flex-1 min-w-0">
                     <div className={`p-2 rounded-full shrink-0 ${
                       item.completed 
-                        ? 'bg-emerald-500/20 text-emerald-500' 
-                        : 'bg-amber-500/20 text-amber-500 animate-pulse'
+                        ? 'bg-emerald-500/20 text-emerald-400' 
+                        : 'bg-amber-500/20 text-amber-400 animate-pulse'
                     }`}>
                       {item.completed ? <CheckCircle2 className="w-4.5 h-4.5 sm:w-5 sm:h-5" /> : <Clock className="w-4.5 h-4.5 sm:w-5 sm:h-5" />}
                     </div>
-                    <div>
-                      <p className={`text-xs sm:text-sm font-bold ${
+                    <div className="flex-1 min-w-0">
+                      <p className={`text-xs sm:text-sm font-bold leading-tight ${
                         item.completed 
                           ? darkMode ? 'text-white' : 'text-slate-950' 
                           : darkMode ? 'text-slate-300' : 'text-slate-700'
                       }`}>
                         {item.name}
                       </p>
-                      <p className={`text-[11px] sm:text-xs font-semibold ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>{item.date}</p>
+                      <p className={`text-[11px] sm:text-xs font-semibold mt-0.5 ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>{item.date}</p>
                     </div>
                   </div>
 
-                  <span className={`self-start sm:self-auto shrink-0 whitespace-nowrap text-[10px] sm:text-xs font-black px-3 py-1 rounded-full border ${
+                  <span className={`self-start xs:self-auto shrink-0 whitespace-nowrap inline-flex items-center justify-center min-w-max text-[10px] sm:text-xs font-black px-3 py-1 rounded-full border shadow-sm ${
                     item.completed
-                      ? 'bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border-emerald-500/40'
-                      : 'bg-amber-500/20 text-amber-600 dark:text-amber-400 border-amber-500/40'
+                      ? 'bg-emerald-500/20 text-emerald-400 border-emerald-500/50'
+                      : 'bg-amber-500/20 text-amber-400 border-amber-500/50'
                   }`}>
                     {item.completed ? 'COMPLETED' : 'IN PROGRESS'}
                   </span>
