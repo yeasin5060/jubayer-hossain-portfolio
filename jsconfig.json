@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "forceConsistentCasingInFileNames": false,
+    "jsx": "react-jsx",
+    "moduleResolution": "bundler"
+  },
+  "exclude": ["node_modules", "dist"]
+}
