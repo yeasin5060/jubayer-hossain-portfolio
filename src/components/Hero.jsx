@@ -95,6 +95,9 @@ export default function Hero({ darkMode = true }) {
                 darkMode ? 'text-white' : 'text-slate-950'
               }`}
             >
+              <span className="block text-xl sm:text-2xl font-black text-amber-500 mb-2 uppercase tracking-wider">
+                Jubayer Hossain
+              </span>
               Streamlining <span className="gold-gradient-text">Global Trade</span>, Customs Clearance & Freight Logistics
             </h1>
 
@@ -105,7 +108,7 @@ export default function Hero({ darkMode = true }) {
                 darkMode ? 'text-slate-200' : 'text-slate-800'
               }`}
             >
-              Dedicated Commercial & Logistics Executive with over 5 years of hands-on mastery in import-export operations, customs documentation, freight forwarding, and end-to-end shipment coordination. Proven track record in minimizing port demurrage, ensuring 100% regulatory compliance, and driving supply chain operational efficiency.
+              I am Jubayer Hossain, a dedicated Commercial & Logistics Executive with over 5 years of hands-on mastery in import-export operations, customs documentation, freight forwarding, and end-to-end shipment coordination. Proven track record in minimizing port demurrage, ensuring 100% regulatory compliance, and driving supply chain operational efficiency.
             </p>
 
             {/* Dual CTA Buttons */}

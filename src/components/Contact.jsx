@@ -119,7 +119,7 @@ export default function Contact({ darkMode = true }) {
                   <div>
                     <h4 className={`font-black text-xs uppercase tracking-wider ${darkMode ? 'text-slate-400' : 'text-slate-600'}`}>Present Address</h4>
                     <p className={`font-bold mt-0.5 ${darkMode ? 'text-slate-200' : 'text-slate-900'}`}>
-                      House #09, Road #09, PC Culture Housing Society, Shekertek, Adabor, Dhaka, Bangladesh.
+                      House #09, Road #04, PC Culture Housing Society, Shekertek, Adabor, Dhaka, Bangladesh.
                     </p>
                   </div>
                 </div>
