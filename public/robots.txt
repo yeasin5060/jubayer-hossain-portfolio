@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://jubayer-hossain.vercel.app/sitemap.xml
+Sitemap: https://jubayer-hossain-portfolio.vercel.app/sitemap.xml
